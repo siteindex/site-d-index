@@ -1,0 +1,5378 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mon espace personnel</title>
+
+<style>
+
+/* =====================================================
+   RÉGLAGES GÉNÉRAUX
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    --texte: #111111;
+
+    --fond:
+        linear-gradient(135deg, #dfe9f3, #ffffff, #dce7f0);
+
+    --bandeau:
+        linear-gradient(90deg, #ffffff, #dce7f0, #ffffff);
+
+    --page:
+        rgba(255, 255, 255, 0.92);
+
+    --bloc:
+        rgba(0, 0, 0, 0.06);
+
+    --bordure:
+        rgba(0, 0, 0, 0.15);
+
+    --ombre:
+        rgba(0, 0, 0, 0.20);
+}
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--fond);
+
+    color: var(--texte);
+
+    transition:
+        background 0.5s ease,
+        color 0.4s ease;
+}
+
+
+/* =====================================================
+   THÈMES
+===================================================== */
+
+body.theme-blanc {
+
+    --fond:
+        linear-gradient(135deg, #dfe9f3, #ffffff, #dce7f0);
+
+    --bandeau:
+        linear-gradient(90deg, #ffffff, #dce7f0, #ffffff);
+
+    --page:
+        rgba(255, 255, 255, 0.94);
+
+    --bloc:
+        rgba(0, 0, 0, 0.06);
+}
+
+
+body.theme-rose {
+
+    --fond:
+        linear-gradient(135deg, #ff9a9e, #fecfef, #fbc2eb);
+
+    --bandeau:
+        linear-gradient(90deg, #ff6fae, #ffc1dc, #d4a5ff);
+
+    --page:
+        rgba(255, 245, 250, 0.92);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-sombre {
+
+    --fond:
+        linear-gradient(135deg, #000000, #181818, #303030);
+
+    --bandeau:
+        linear-gradient(90deg, #000000, #333333, #111111);
+
+    --page:
+        rgba(20, 20, 20, 0.95);
+
+    --bloc:
+        rgba(255, 255, 255, 0.10);
+}
+
+
+body.theme-bleu {
+
+    --fond:
+        linear-gradient(135deg, #74ebd5, #ACB6E5, #6dd5ed);
+
+    --bandeau:
+        linear-gradient(90deg, #2193b0, #6dd5ed, #74ebd5);
+
+    --page:
+        rgba(240, 250, 255, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-violet {
+
+    --fond:
+        linear-gradient(135deg, #667eea, #764ba2, #c471ed);
+
+    --bandeau:
+        linear-gradient(90deg, #667eea, #764ba2, #c471ed);
+
+    --page:
+        rgba(35, 20, 55, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-vert {
+
+    --fond:
+        linear-gradient(135deg, #56ab2f, #a8e063, #38ef7d);
+
+    --bandeau:
+        linear-gradient(90deg, #11998e, #38ef7d, #a8e063);
+
+    --page:
+        rgba(245, 255, 245, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-rouge {
+
+    --fond:
+        linear-gradient(135deg, #8b0000, #e52d27, #ff6b6b);
+
+    --bandeau:
+        linear-gradient(90deg, #b31217, #e52d27, #ff6b6b);
+
+    --page:
+        rgba(55, 10, 15, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-orange {
+
+    --fond:
+        linear-gradient(135deg, #ff7e00, #ffb347, #ffd194);
+
+    --bandeau:
+        linear-gradient(90deg, #ff7e00, #ffb347, #ffd194);
+
+    --page:
+        rgba(255, 250, 245, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-jaune {
+
+    --fond:
+        linear-gradient(135deg, #fff176, #f6d365, #fda085);
+
+    --bandeau:
+        linear-gradient(90deg, #f6d365, #fff176, #fda085);
+
+    --page:
+        rgba(255, 255, 245, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-cyan {
+
+    --fond:
+        linear-gradient(135deg, #00c6ff, #00f2fe, #4facfe);
+
+    --bandeau:
+        linear-gradient(90deg, #0083b0, #00c6ff, #00f2fe);
+
+    --page:
+        rgba(235, 255, 255, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-indigo {
+
+    --fond:
+        linear-gradient(135deg, #1a237e, #3949ab, #7986cb);
+
+    --bandeau:
+        linear-gradient(90deg, #1a237e, #3949ab, #5c6bc0);
+
+    --page:
+        rgba(20, 25, 70, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-dore {
+
+    --fond:
+        linear-gradient(135deg, #b8860b, #ffd700, #fff2a8);
+
+    --bandeau:
+        linear-gradient(90deg, #b8860b, #ffd700, #fff2a8);
+
+    --page:
+        rgba(255, 252, 235, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-turquoise {
+
+    --fond:
+        linear-gradient(135deg, #00b09b, #96c93d, #00d2ff);
+
+    --bandeau:
+        linear-gradient(90deg, #008f7a, #00b09b, #96c93d);
+
+    --page:
+        rgba(240, 255, 252, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+body.theme-marron {
+
+    --fond:
+        linear-gradient(135deg, #3e2723, #795548, #bcaaa4);
+
+    --bandeau:
+        linear-gradient(90deg, #3e2723, #5d4037, #795548);
+
+    --page:
+        rgba(45, 30, 25, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-gris {
+
+    --fond:
+        linear-gradient(135deg, #434343, #000000, #777777);
+
+    --bandeau:
+        linear-gradient(90deg, #222222, #555555, #111111);
+
+    --page:
+        rgba(30, 30, 30, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-ocean {
+
+    --fond:
+        linear-gradient(135deg, #003973, #005c97, #00d2ff);
+
+    --bandeau:
+        linear-gradient(90deg, #002f5f, #005c97, #00a8cc);
+
+    --page:
+        rgba(10, 35, 65, 0.94);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+body.theme-coucher {
+
+    --fond:
+        linear-gradient(135deg, #ee0979, #ff6a00, #ffd200);
+
+    --bandeau:
+        linear-gradient(90deg, #ee0979, #ff6a00, #ffd200);
+
+    --page:
+        rgba(60, 15, 30, 0.92);
+
+    --bloc:
+        rgba(255, 255, 255, 0.12);
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+header {
+
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 12px;
+
+    background: var(--bandeau);
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.25);
+
+    transition:
+        background 0.5s ease;
+}
+
+
+nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.menu-btn {
+
+    border: none;
+
+    padding:
+        11px 17px;
+
+    border-radius: 12px;
+
+    background:
+        var(--bloc);
+
+    color:
+        var(--texte);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s,
+        background 0.25s;
+}
+
+
+.menu-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.30);
+}
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+.page {
+
+    min-height: 650px;
+
+    margin: 20px;
+
+    padding: 25px;
+
+    border-radius: 22px;
+
+    background:
+        var(--page);
+
+    color:
+        var(--texte);
+
+    box-shadow:
+        0 12px 35px var(--ombre);
+
+    transition:
+        0.5s;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* =====================================================
+   TEXTES
+===================================================== */
+
+h1,
+h2,
+h3,
+p {
+
+    color:
+        var(--texte);
+}
+
+
+h1 {
+
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+
+h2 {
+
+    margin-bottom: 18px;
+}
+
+
+p {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ACCUEIL
+===================================================== */
+
+.logos {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    align-items: center;
+}
+
+
+.logo-btn {
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.logo-btn:hover {
+
+    transform:
+        scale(1.10);
+}
+
+
+.contenu {
+
+    text-align: center;
+
+    margin-top: 110px;
+}
+
+
+/* =====================================================
+   LOGO YOUTUBE
+===================================================== */
+
+.youtube {
+
+    width: 80px;
+
+    height: 58px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3333,
+            #ff0000,
+            #b80000
+        );
+
+    box-shadow:
+        0 6px 16px rgba(255, 0, 0, 0.45);
+}
+
+
+.youtube-play {
+
+    width: 0;
+
+    height: 0;
+
+    border-top:
+        13px solid transparent;
+
+    border-bottom:
+        13px solid transparent;
+
+    border-left:
+        23px solid white;
+
+    margin-left: 5px;
+}
+
+
+/* =====================================================
+   LOGO SPOTIFY
+===================================================== */
+
+.spotify {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        #1DB954;
+
+    box-shadow:
+        0 5px 15px rgba(29, 185, 84, 0.40);
+}
+
+
+.spotify-logo {
+
+    width: 44px;
+
+    height: 44px;
+
+    position: relative;
+
+    border-radius: 50%;
+
+    background:
+        black;
+}
+
+
+.spotify-logo span {
+
+    position: absolute;
+
+    left: 8px;
+
+    height: 4px;
+
+    background:
+        #1DB954;
+
+    border-radius: 10px;
+
+    transform:
+        rotate(8deg);
+}
+
+
+.spotify-logo .s1 {
+
+    width: 27px;
+
+    top: 10px;
+}
+
+
+.spotify-logo .s2 {
+
+    width: 23px;
+
+    top: 19px;
+}
+
+
+.spotify-logo .s3 {
+
+    width: 18px;
+
+    top: 28px;
+}
+
+
+/* =====================================================
+   NOTUBE
+===================================================== */
+
+.notube {
+
+    width: 78px;
+
+    height: 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(135deg, #555555, #111111);
+
+    color:
+        white;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.30);
+}
+
+
+/* =====================================================
+   TIKTOK
+===================================================== */
+
+.tiktok {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        black;
+}
+
+
+.tiktok-logo {
+
+    font-size: 40px;
+
+    color:
+        white;
+
+    text-shadow:
+        -3px 0 #25F4EE,
+        3px 0 #FE2C55;
+}
+
+
+/* =====================================================
+   CHATGPT
+===================================================== */
+
+.chatgpt {
+
+    width: 64px;
+
+    height: 64px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg, #ffffff, #d6d6d6);
+
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.30);
+}
+
+
+.chatgpt-symbol {
+
+    font-size: 37px;
+
+    color:
+        #111111;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   WIKIPÉDIA
+===================================================== */
+
+.wikipedia {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg, #ffffff, #cfcfcf);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+.wikipedia-logo {
+
+    width: 44px;
+
+    height: 44px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    border: 2px solid #555;
+
+    color: #222;
+
+    font-family: Georgia, serif;
+
+    font-size: 29px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   WHATSAPP ET DISCORD
+===================================================== */
+
+.whatsapp {
+
+    background:
+        linear-gradient(135deg, #25D366, #128C7E);
+
+}
+
+
+.discord {
+
+    background:
+        linear-gradient(135deg, #5865F2, #404EED);
+
+}
+
+
+.whatsapp-logo,
+.discord-logo {
+
+    width: 46px;
+
+    height: 46px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    box-shadow:
+        inset 0 2px 5px rgba(255, 255, 255, 0.8),
+        0 4px 12px rgba(0, 0, 0, 0.28);
+
+}
+
+
+.whatsapp-logo svg {
+
+    width: 31px;
+
+    height: 31px;
+
+    fill: #25D366;
+
+}
+
+
+.discord-logo svg {
+
+    width: 34px;
+
+    height: 34px;
+
+    fill: #5865F2;
+
+}
+
+
+.whatsapp:hover,
+.discord:hover {
+
+    transform: translateY(-4px) scale(1.06);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.35);
+
+}
+
+.whatsapp-petit svg,
+.discord-petit svg {
+
+    width: 25px;
+
+    height: 25px;
+
+    fill: white;
+
+}
+
+
+/* =====================================================
+   MBN ET PRONOTE
+===================================================== */
+
+.mbn {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg, #2196f3, #0d47a1);
+
+    box-shadow:
+        0 5px 15px rgba(13, 71, 161, 0.40);
+}
+
+
+.mbn-logo {
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+}
+
+
+.pronote {
+
+    width: 62px;
+
+    height: 62px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(135deg, #3fb8af, #1f6f68);
+
+    box-shadow:
+        0 5px 15px rgba(31, 111, 104, 0.40);
+}
+
+
+.pronote-logo {
+
+    color: white;
+
+    font-size: 32px;
+
+    font-weight: bold;
+
+    font-family: Georgia, serif;
+}
+
+
+/* =====================================================
+   WIDGET SPOTIFY — LECTURE EN DIRECT
+===================================================== */
+
+.spotify-widget {
+
+    max-width: 420px;
+
+    margin: 30px auto 0;
+
+    padding: 18px;
+
+    border-radius: 18px;
+
+    background: var(--page);
+
+    border: 1px solid var(--bordure);
+
+    box-shadow: 0 10px 25px var(--ombre);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 90px;
+
+    transition:
+        background 0.4s ease,
+        border 0.4s ease;
+}
+
+
+.spotify-widget-connect {
+
+    display: flex;
+
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+.spotify-login-btn {
+
+    border: none;
+
+    padding: 12px 22px;
+
+    border-radius: 30px;
+
+    background: #1DB954;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.spotify-login-btn:hover {
+
+    transform: translateY(-2px);
+
+    background: #1ed760;
+}
+
+
+.spotify-widget-player {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+
+.spotify-cover {
+
+    width: 64px;
+
+    height: 64px;
+
+    border-radius: 10px;
+
+    object-fit: cover;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.30);
+
+    flex-shrink: 0;
+}
+
+
+.spotify-infos {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.spotify-titre {
+
+    font-weight: bold;
+
+    font-size: 15px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.spotify-artiste {
+
+    font-size: 13px;
+
+    opacity: 0.75;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    margin-bottom: 8px;
+}
+
+
+.spotify-barre {
+
+    width: 100%;
+
+    height: 5px;
+
+    border-radius: 10px;
+
+    background: var(--bloc);
+
+    overflow: hidden;
+}
+
+
+.spotify-progression {
+
+    height: 100%;
+
+    width: 0%;
+
+    background: #1DB954;
+
+    border-radius: 10px;
+
+    transition: width 0.25s linear;
+}
+
+
+.spotify-temps {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 11px;
+
+    opacity: 0.65;
+
+    margin-top: 4px;
+}
+
+
+.spotify-widget-vide {
+
+    text-align: center;
+
+    opacity: 0.7;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-contenu {
+
+    text-align: center;
+
+    padding-top: 100px;
+}
+
+
+.email {
+
+    display: inline-block;
+
+    margin-top: 30px;
+
+    padding:
+        15px 25px;
+
+    border-radius: 15px;
+
+    background:
+        var(--bloc);
+
+    color:
+        var(--texte);
+
+    font-size: 21px;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.3s;
+}
+
+
+.email:hover {
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =====================================================
+   COULEURS - ONGLET TRAVAIL
+===================================================== */
+
+#travail {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(110, 80, 220, 0.22),
+            rgba(0, 180, 220, 0.18),
+            rgba(255, 100, 170, 0.18)
+        );
+
+}
+
+
+.travail-raccourcis {
+
+    padding: 15px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(0, 0, 0, 0.08)
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+.travail-youtube {
+    background: linear-gradient(135deg, #ff0000, #b00020);
+}
+
+.travail-spotify {
+    background: linear-gradient(135deg, #1DB954, #0b6b31);
+}
+
+.travail-notube {
+    background: linear-gradient(135deg, #555555, #111111);
+}
+
+.travail-tiktok {
+    background: linear-gradient(135deg, #25F4EE, #111111, #FE2C55);
+}
+
+.travail-chatgpt {
+    background: linear-gradient(135deg, #00a67e, #111111);
+}
+
+.travail-wikipedia {
+    background: linear-gradient(135deg, #eeeeee, #555555);
+    color: #111111;
+}
+
+.travail-whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.travail-discord {
+    background: linear-gradient(135deg, #5865F2, #404EED);
+}
+
+
+.travail-raccourci {
+
+    box-shadow:
+        0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+
+.travail-raccourci:hover {
+
+    filter: brightness(1.12);
+
+    box-shadow:
+        0 10px 22px rgba(0, 0, 0, 0.32);
+}
+
+
+.travail-contenu {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.16),
+            rgba(120, 80, 255, 0.10),
+            rgba(0, 180, 220, 0.10)
+        );
+
+}
+
+
+/* =====================================================
+   TRAVAIL
+===================================================== */
+
+.travail-conteneur {
+
+    display: flex;
+
+    gap: 22px;
+
+    align-items: flex-start;
+}
+
+
+.travail-raccourcis {
+
+    width: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.travail-raccourci {
+
+    border: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    min-height: 58px;
+
+    border-radius: 13px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: grab;
+
+    user-select: none;
+
+    touch-action: none;
+
+    transition:
+        transform 0.25s,
+        opacity 0.25s,
+        box-shadow 0.25s;
+}
+
+
+.travail-raccourci.dragging {
+
+    opacity: 0.75;
+
+    cursor: grabbing;
+
+    position: fixed;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+
+.travail-raccourci:hover {
+
+    transform:
+        translateX(6px);
+}
+
+
+.travail-youtube {
+
+    background:
+        #ff0000;
+}
+
+
+.travail-spotify {
+
+    background:
+        #1DB954;
+}
+
+
+.travail-notube {
+
+    background:
+        #222222;
+}
+
+
+.travail-tiktok {
+
+    background:
+        black;
+}
+
+
+.travail-chatgpt {
+
+    background:
+        linear-gradient(135deg, #111111, #555555);
+}
+
+
+.travail-wikipedia {
+
+    background:
+        linear-gradient(135deg, #555555, #222222);
+}
+
+
+.petit-logo {
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 8px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+}
+
+
+.travail-contenu {
+
+    flex: 1;
+
+    min-height: 550px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        var(--bloc);
+
+    overflow: hidden;
+}
+
+
+#siteInterne {
+
+    width: 100%;
+
+    min-height: 420px;
+
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+}
+
+
+#siteInterne iframe {
+
+    width: 100%;
+
+    height: 500px;
+
+    border: none;
+
+    background:
+        white;
+}
+
+
+/* =====================================================
+   PAGE DE SECOURS POUR LES SITES BLOQUÉS
+===================================================== */
+
+.site-bloque {
+
+    min-height: 420px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+
+.site-bloque h2 {
+
+    margin-bottom: 15px;
+}
+
+
+.site-bloque p {
+
+    max-width: 600px;
+}
+
+
+.ouvrir-site {
+
+    margin-top: 25px;
+
+    padding:
+        14px 25px;
+
+    border-radius: 13px;
+
+    background:
+        #333333;
+
+    color:
+        white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.25s;
+}
+
+
+.ouvrir-site:hover {
+
+    transform:
+        scale(1.05);
+}
+
+
+/* =====================================================
+   RECHERCHE - MINI NAVIGATEUR
+===================================================== */
+
+.mini-navigateur {
+
+    margin-top: 20px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border:
+        1px solid var(--bordure);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.20);
+}
+
+
+.browser-top {
+
+    padding: 12px;
+
+    display: flex;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    background:
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.browser-btn {
+
+    width: 42px;
+
+    height: 40px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        var(--bloc);
+
+    color:
+        var(--texte);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s;
+}
+
+
+.browser-btn:hover {
+
+    transform:
+        scale(1.08);
+}
+
+
+#urlInput {
+
+    flex: 1;
+
+    min-width: 180px;
+
+    height: 40px;
+
+    padding:
+        0 15px;
+
+    border:
+        1px solid var(--bordure);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    color:
+        #111111;
+}
+
+
+.go-btn {
+
+    height: 40px;
+
+    padding:
+        0 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        #1677ff;
+
+    color:
+        white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.browser-title {
+
+    padding:
+        10px 18px;
+
+    font-size: 14px;
+
+    background:
+        rgba(0, 0, 0, 0.08);
+}
+
+
+#browserContent {
+
+    min-height: 520px;
+
+    background:
+        white;
+
+    color:
+        #111111;
+}
+
+
+.browser-home {
+
+    min-height: 520px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(135deg, #f5f7fa, #e4ecf5);
+
+    color:
+        #111111;
+}
+
+
+.browser-home h2 {
+
+    color:
+        #111111;
+}
+
+
+.browser-home p {
+
+    color:
+        #333333;
+
+    max-width: 600px;
+}
+
+
+.browser-home .emoji {
+
+    font-size: 70px;
+
+    margin-bottom: 20px;
+}
+
+
+#browserContent iframe {
+
+    width: 100%;
+
+    height: 520px;
+
+    border: none;
+}
+
+
+/* =====================================================
+   THÈMES
+===================================================== */
+
+.theme-section {
+
+    margin-top: 45px;
+
+    text-align: center;
+}
+
+
+.theme-buttons,
+.text-color-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.theme-btn {
+
+    width: 145px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.25s;
+}
+
+
+.theme-btn:hover {
+
+    transform:
+        scale(1.07);
+}
+
+
+.btn-blanc { background: linear-gradient(135deg, white, #cbd5e1); color: black; }
+.btn-rose { background: linear-gradient(135deg, #ff6fae, #ffc1dc); color: #4a1230; }
+.btn-sombre { background: linear-gradient(135deg, black, #555); color: white; }
+.btn-bleu { background: linear-gradient(135deg, #2193b0, #6dd5ed); color: white; }
+.btn-violet { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+.btn-vert { background: linear-gradient(135deg, #11998e, #a8e063); color: #073b22; }
+.btn-rouge { background: linear-gradient(135deg, #b31217, #ff6b6b); color: white; }
+.btn-orange { background: linear-gradient(135deg, #ff7e00, #ffd194); color: #4a2100; }
+.btn-jaune { background: linear-gradient(135deg, #fff176, #fda085); color: #3d3000; }
+.btn-cyan { background: linear-gradient(135deg, #00c6ff, #00f2fe); color: #003b46; }
+.btn-indigo { background: linear-gradient(135deg, #1a237e, #7986cb); color: white; }
+.btn-dore { background: linear-gradient(135deg, #b8860b, #ffd700); color: #3d2b00; }
+.btn-turquoise { background: linear-gradient(135deg, #00b09b, #96c93d); color: #003d35; }
+.btn-marron { background: linear-gradient(135deg, #3e2723, #bcaaa4); color: white; }
+.btn-gris { background: linear-gradient(135deg, #222, #999); color: white; }
+.btn-ocean { background: linear-gradient(135deg, #003973, #00d2ff); color: white; }
+.btn-coucher { background: linear-gradient(135deg, #ee0979, #ff6a00, #ffd200); color: white; }
+
+
+/* =====================================================
+   COULEURS DU TEXTE
+===================================================== */
+
+.text-color-btn {
+
+    width: 145px;
+
+    padding: 14px;
+
+    border:
+        2px solid transparent;
+
+    border-radius: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s;
+}
+
+
+.text-color-btn:hover {
+
+    transform:
+        scale(1.07);
+}
+
+
+.texte-auto {
+    background: linear-gradient(135deg, #00c6ff, #764ba2, #ff6fae);
+    color: white;
+}
+
+.texte-noir {
+    background: #eeeeee;
+    color: black;
+}
+
+.texte-blanc {
+    background: #111111;
+    color: white;
+}
+
+.texte-rouge {
+    background: #ffdddd;
+    color: #d00000;
+}
+
+.texte-bleu {
+    background: #d9f0ff;
+    color: #0055aa;
+}
+
+.texte-vert {
+    background: #dfffe5;
+    color: #087f23;
+}
+
+.texte-violet {
+    background: #eadcff;
+    color: #6200aa;
+}
+
+.texte-rose {
+    background: #ffe0ec;
+    color: #c2185b;
+}
+
+.texte-orange {
+    background: #fff0dd;
+    color: #ff6600;
+}
+
+.texte-cyan {
+    background: #dfffff;
+    color: #008899;
+}
+
+.texte-dore {
+    background: #fff5b5;
+    color: #a67c00;
+}
+
+.texte-turquoise {
+    background: #d8fff8;
+    color: #008f7a;
+}
+
+.texte-gris {
+    background: #eeeeee;
+    color: #666666;
+}
+
+.texte-magenta {
+    background: #ffd9f7;
+    color: #d000b7;
+}
+
+.texte-vertclair {
+    background: #efffd8;
+    color: #4d9c00;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 750px) {
+
+    .page {
+
+        margin: 10px;
+
+        padding: 18px;
+    }
+
+    h1 {
+
+        font-size: 30px;
+    }
+
+    .travail-conteneur {
+
+        flex-direction: column;
+    }
+
+    .travail-raccourcis {
+
+        width: 100%;
+
+        flex-direction: row;
+
+        flex-wrap: wrap;
+    }
+
+    .travail-raccourci {
+
+        width: auto;
+    }
+
+    .browser-top {
+
+        justify-content: center;
+    }
+
+    #urlInput {
+
+        width: 100%;
+        flex: none;
+    }
+
+}
+
+
+
+/* =====================================================
+   WHATSAPP ET DISCORD — MÊME FORME QUE LES AUTRES
+===================================================== */
+
+.logo-btn.whatsapp,
+.logo-btn.discord {
+
+    width: 62px;
+    height: 62px;
+
+    min-width: 62px;
+    min-height: 62px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.logo-btn.whatsapp .whatsapp-logo,
+.logo-btn.discord .discord-logo {
+
+    width: 46px;
+    height: 46px;
+
+    border-radius: 50%;
+
+}
+
+
+/* Même arrondi et même taille dans l'onglet Travail */
+
+.travail-raccourci.travail-whatsapp,
+.travail-raccourci.travail-discord {
+
+    border-radius: 16px;
+
+}
+
+
+/* =====================================================
+   DÉPLACEMENT ACCUEIL ET ONGLETS
+===================================================== */
+
+.logos, nav { user-select: none; }
+
+.logo-btn, .menu-btn { touch-action: none; }
+
+.dragging-home, .dragging-tab {
+    position: fixed !important;
+    z-index: 9999 !important;
+    pointer-events: none !important;
+    opacity: 0.7;
+    transform: scale(1.08);
+    cursor: grabbing !important;
+}
+
+
+/* =====================================================
+   POSITION LIBRE SUR TOUTE LA PAGE
+===================================================== */
+
+.logo-btn.position-libre,
+.menu-btn.position-libre {
+    position: fixed !important;
+    z-index: 5000 !important;
+    margin: 0 !important;
+}
+
+
+/* =====================================================
+   RACCOURCIS SUR PLUSIEURS LIGNES — DÉPLACEMENT PAR ORDRE
+===================================================== */
+
+.logos {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center;
+    gap: 14px !important;
+    position: relative !important;
+}
+
+.logo-btn {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 !important;
+}
+
+.logo-btn.position-libre {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+}
+
+/* Apparence pendant le déplacement */
+.logo-btn.dragging-home,
+.menu-btn.dragging-tab {
+    opacity: 0.45 !important;
+    transform: scale(0.92) !important;
+}
+
+/* Les onglets restent dans leur barre */
+nav {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px;
+}
+
+
+/* =====================================================
+   COMMANDE DE TAILLE DES LOGOS
+===================================================== */
+
+.commande-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 18px auto;
+    padding: 12px 16px;
+    width: min(420px, 90%);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.16);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.commande-logos input {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.commande-logos .info-commande {
+    font-size: 13px;
+    opacity: 0.85;
+}
+
+.logos .logo-btn {
+    transform: scale(var(--taille-logo, 1));
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+
+/* =====================================================
+   COMMANDE LOGOS — BAS GAUCHE, SANS TEXTE
+===================================================== */
+
+.commande-logos {
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+
+    z-index: 10000;
+}
+
+.commande-logos .info-commande {
+    display: none !important;
+}
+
+.commande-logos input {
+    width: 180px !important;
+    flex: none !important;
+
+    padding: 10px 14px !important;
+
+    text-align: left !important;
+
+    border: 2px solid rgba(255,255,255,0.35) !important;
+
+    background: rgba(255,255,255,0.18) !important;
+
+    color: inherit !important;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.18) !important;
+}
+
+/* Aucun texte affiché automatiquement */
+.commande-logos input::placeholder {
+    color: transparent !important;
+}
+
+
+/* =====================================================
+   COMMANDE LOGOS — ENTRE LES ONGLETS ET LES RACCOURCIS
+===================================================== */
+
+.commande-logos {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+
+    width: min(420px, 90%) !important;
+    margin: 18px auto !important;
+    padding: 10px 14px !important;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    background: rgba(255,255,255,0.12) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15) !important;
+    backdrop-filter: blur(8px) !important;
+
+    z-index: auto !important;
+}
+
+.commande-logos input {
+    width: 100% !important;
+    min-width: 0 !important;
+
+    background: rgba(255,255,255,0.88) !important;
+    color: #222 !important;
+}
+
+/* Le texte reste affiché après Entrée */
+
+
+/* =====================================================
+   COMMANDE DE TAILLE — ONGLET TRAVAIL
+===================================================== */
+
+#travail .commande-travail {
+    width: min(420px, 90%);
+    margin: 18px auto;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    backdrop-filter: blur(8px);
+}
+
+#travail .commande-travail input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 14px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.88);
+    color: #222;
+}
+
+
+/* =====================================================
+   ADAPTATION AUTOMATIQUE DES RACCOURCIS À LA TAILLE
+===================================================== */
+
+.logos,
+.travail-raccourcis {
+    overflow: visible !important;
+}
+
+/* Quand les logos deviennent grands, la zone peut utiliser plusieurs lignes */
+.logos {
+    justify-content: center;
+    align-content: flex-start;
+}
+
+/* Les raccourcis Travail peuvent également passer à la ligne */
+.travail-raccourcis {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Empêche les éléments de sortir horizontalement de l'écran */
+.logo-btn,
+.travail-raccourci {
+    max-width: calc(100vw - 30px);
+}
+
+
+/* =====================================================
+   ESPACEMENT DES LOGOS QUAND ILS GRANDISSENT
+===================================================== */
+
+.logos {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* La taille est maintenant réelle dans la mise en page :
+   les logos ne se superposent plus. */
+.logos .logo-btn {
+    transform: none !important;
+    flex: 0 0 auto !important;
+}
+
+#travail .travail-raccourcis {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+#travail .travail-raccourci {
+    transform: none !important;
+    flex: 0 0 auto !important;
+}
+
+</style>
+
+</head>
+
+
+<body class="theme-blanc">
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<header>
+
+<nav>
+
+<button class="menu-btn" data-tab-id="accueil" onclick="afficherPage('accueil')">
+🏠 Accueil
+</button>
+
+<button class="menu-btn" data-tab-id="apropos" onclick="afficherPage('apropos')">
+ℹ️ À propos
+</button>
+
+<button class="menu-btn" data-tab-id="contact" onclick="afficherPage('contact')">
+✉️ Contact
+</button>
+
+<button class="menu-btn" data-tab-id="travail" onclick="afficherPage('travail')">
+💼 Travail
+</button>
+
+<button class="menu-btn" data-tab-id="recherche" onclick="afficherPage('recherche')">
+🔎 Recherche
+</button>
+
+<button class="menu-btn" data-tab-id="theme" onclick="afficherPage('theme')">
+🎨 Thème
+</button>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+     ACCUEIL
+===================================================== -->
+
+<section class="page" id="accueil">
+
+<!-- Commande pour agrandir ou réduire les raccourcis -->
+<div class="commande-logos">
+    <input
+        type="text"
+        id="commandeLogo"
+        placeholder=""
+        autocomplete="off"
+    >
+</div>
+
+<div class="logos">
+
+
+<a
+href="https://www.youtube.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn youtube" data-shortcut-id="youtube"
+title="YouTube"
+>
+
+<div class="youtube-play"></div>
+
+</a>
+
+
+<a
+href="https://open.spotify.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn spotify" data-shortcut-id="spotify"
+title="Spotify"
+>
+
+<div class="spotify-logo">
+
+<span class="s1"></span>
+<span class="s2"></span>
+<span class="s3"></span>
+
+</div>
+
+</a>
+
+
+<a
+href="https://notube.lol/fr/youtube-app-413"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn notube" data-shortcut-id="notube"
+>
+
+noTube
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn tiktok" data-shortcut-id="tiktok"
+>
+
+<div class="tiktok-logo">♪</div>
+
+</a>
+
+
+<a
+href="https://chatgpt.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn chatgpt" data-shortcut-id="chatgpt"
+title="ChatGPT"
+>
+
+<div class="chatgpt-symbol">✦</div>
+
+</a>
+
+
+<a
+href="https://fr.wikipedia.org/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn wikipedia" data-shortcut-id="wikipedia"
+title="Wikipédia"
+>
+
+<div class="wikipedia-logo">W</div>
+
+</a>
+
+<a
+href="https://web.whatsapp.com/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn whatsapp" data-shortcut-id="whatsapp"
+title="WhatsApp"
+>
+
+<div class="whatsapp-logo" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12.04 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.45-1.43A9.8 9.8 0 1 0 12.04 2Zm0 17.8a8 8 0 0 1-4.08-1.12l-.3-.18-3.23.85.86-3.14-.2-.32A8 8 0 1 1 12.04 19.8Zm4.39-5.98c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06a6.55 6.55 0 0 1-1.93-1.19 7.2 7.2 0 0 1-1.33-1.66c-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.65.58.25 1.03.4 1.38.51.58.18 1.11.15 1.53.09.47-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z"/>
+</svg>
+</div>
+
+</a>
+
+
+<a
+href="https://discord.com/app"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn discord" data-shortcut-id="discord"
+title="Discord"
+>
+
+<div class="discord-logo" aria-label="Discord">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M19.54 4.68A16.3 16.3 0 0 0 15.6 3.5l-.48.97a15.1 15.1 0 0 0-6.24 0l-.48-.97a16.2 16.2 0 0 0-3.95 1.19C2.06 8.3 1.42 11.82 1.74 15.3a15.8 15.8 0 0 0 4.83 2.45l1.17-1.58a9.3 9.3 0 0 1-1.84-.88l.44-.34c3.55 1.65 7.4 1.65 10.9 0l.44.34c-.6.36-1.22.66-1.84.88l1.17 1.58a15.7 15.7 0 0 0 4.84-2.45c.38-4.03-.65-7.52-2.32-10.62ZM8.72 13.15c-.95 0-1.72-.86-1.72-1.91s.76-1.91 1.72-1.91c.97 0 1.74.86 1.72 1.91 0 1.05-.76 1.91-1.72 1.91Zm6.17 0c-.95 0-1.72-.86-1.72-1.91s.76-1.91 1.72-1.91c.97 0 1.74.86 1.72 1.91 0 1.05-.75 1.91-1.72 1.91Z"/>
+</svg>
+</div>
+
+</a>
+
+
+<!--
+    ⚠️ Remplace le lien ci-dessous par celui de TON établissement,
+    par exemple https://clg-nomdutonetablissement.monbureaunumerique.fr/
+-->
+<a
+href="https://www.monbureaunumerique.fr/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn mbn" data-shortcut-id="mbn"
+title="Mon Bureau Numérique"
+>
+
+<div class="mbn-logo">MBN</div>
+
+</a>
+
+
+<!--
+    ⚠️ Remplace le lien ci-dessous par celui de TON établissement,
+    par exemple https://0000000a.index-education.net/pronote/
+-->
+<a
+href="https://www.index-education.com/fr/"
+target="_blank"
+rel="noopener noreferrer"
+class="logo-btn pronote" data-shortcut-id="pronote"
+title="Pronote"
+>
+
+<div class="pronote-logo">P</div>
+
+</a>
+
+
+</div>
+
+
+<div class="contenu">
+
+<h1>Bienvenue sur mon site</h1>
+
+<p>
+Utilise les raccourcis ou explore les différents onglets.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+     WIDGET SPOTIFY — LECTURE EN DIRECT
+===================================================== -->
+
+<div class="spotify-widget" id="spotifyWidget">
+
+    <div class="spotify-widget-connect" id="spotifyConnect">
+        <button class="spotify-login-btn" id="spotifyLoginBtn">
+            Connecter Spotify
+        </button>
+    </div>
+
+    <div class="spotify-widget-player" id="spotifyPlayer" style="display:none;">
+
+        <img class="spotify-cover" id="spotifyCover" src="" alt="Pochette de l'album">
+
+        <div class="spotify-infos">
+
+            <div class="spotify-titre" id="spotifyTitre">—</div>
+            <div class="spotify-artiste" id="spotifyArtiste">—</div>
+
+            <div class="spotify-barre">
+                <div class="spotify-progression" id="spotifyProgression"></div>
+            </div>
+
+            <div class="spotify-temps">
+                <span id="spotifyTempsActuel">0:00</span>
+                <span id="spotifyTempsTotal">0:00</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="spotify-widget-vide" id="spotifyVide" style="display:none;">
+        Rien n'est en cours de lecture
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     À PROPOS
+===================================================== -->
+
+<section class="page hidden" id="apropos">
+
+<div class="contact-contenu">
+
+<h1>ℹ️ À propos</h1>
+
+<p>
+
+Bienvenue sur mon site personnel.
+
+<br><br>
+
+Tu peux utiliser les raccourcis, l'espace Travail,
+le mini-navigateur et personnaliser entièrement les couleurs.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section class="page hidden" id="contact">
+
+<div class="contact-contenu">
+
+<h1>Vous pouvez me contacter ici</h1>
+
+<a
+href="mailto:siteindex@outlook.fr"
+class="email"
+>
+
+siteindex@outlook.fr
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAVAIL
+===================================================== -->
+
+<section class="page hidden" id="travail">
+
+<h1>💼 Travail</h1>
+
+<div class="travail-conteneur">
+
+
+<div class="travail-raccourcis">
+
+<div class="commande-travail">
+    <input
+        type="text"
+        id="commandeTravail"
+        placeholder=""
+        autocomplete="off"
+    >
+</div>
+
+
+
+<button
+class="travail-raccourci travail-youtube"
+onclick="ouvrirTravail('youtube')"
+>
+
+<div class="petit-logo">▶</div>
+
+YouTube
+
+</button>
+
+
+<button
+class="travail-raccourci travail-spotify"
+onclick="ouvrirTravail('spotify')"
+>
+
+<div class="petit-logo">♫</div>
+
+Spotify
+
+</button>
+
+
+<button
+class="travail-raccourci travail-notube"
+onclick="ouvrirTravail('notube')"
+>
+
+<div class="petit-logo">N</div>
+
+noTube
+
+</button>
+
+
+<button
+class="travail-raccourci travail-tiktok"
+onclick="ouvrirTravail('tiktok')"
+>
+
+<div class="petit-logo">♪</div>
+
+TikTok
+
+</button>
+
+
+<button
+class="travail-raccourci travail-chatgpt"
+onclick="ouvrirTravail('chatgpt')"
+>
+
+<div class="petit-logo">✦</div>
+
+ChatGPT
+
+</button>
+
+
+<button
+class="travail-raccourci travail-wikipedia"
+onclick="ouvrirTravail('wikipedia')"
+>
+
+<div class="petit-logo">W</div>
+
+Wikipédia
+
+</button>
+
+<button
+class="travail-raccourci travail-whatsapp"
+onclick="ouvrirTravail('whatsapp')"
+>
+
+<div class="petit-logo whatsapp-petit">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M12.04 2a9.8 9.8 0 0 0-8.5 14.7L2 22l5.45-1.43A9.8 9.8 0 1 0 12.04 2Z"/>
+<path fill="#25D366" d="M12.04 5.2a6.8 6.8 0 0 0-5.84 10.28l.25.4-.5 1.83 1.89-.5.37.22a6.8 6.8 0 1 0 3.83-12.23Z"/>
+<path fill="white" d="M10.05 8.75c-.12-.28-.25-.29-.37-.3h-.32c-.11 0-.29.04-.44.2-.15.16-.58.56-.58 1.37s.6 1.6.68 1.71c.08.11 1.18 1.8 2.86 2.53.4.17.71.27.96.35.4.12.77.1 1.06.06.33-.05.97-.39 1.11-.77.14-.38.14-.7.1-.77-.04-.07-.15-.11-.32-.2-.17-.08-.97-.48-1.12-.54-.15-.05-.26-.08-.37.08-.11.16-.43.54-.53.65-.1.11-.2.13-.36.04a5.1 5.1 0 0 1-1.5-.92 5.6 5.6 0 0 1-1.03-1.29c-.11-.19-.01-.29.09-.38.08-.08.19-.22.28-.32.09-.11.12-.19.18-.31.06-.12.03-.23-.01-.32-.04-.09-.37-1-.51-1.36Z"/>
+</svg>
+</div>
+
+WhatsApp
+
+</button>
+
+
+<button
+class="travail-raccourci travail-discord"
+onclick="ouvrirTravail('discord')"
+>
+
+<div class="petit-logo discord-petit">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M19.54 4.68A16.3 16.3 0 0 0 15.6 3.5l-.48.97a15.1 15.1 0 0 0-6.24 0l-.48-.97a16.2 16.2 0 0 0-3.95 1.19C2.06 8.3 1.42 11.82 1.74 15.3a15.8 15.8 0 0 0 4.83 2.45l1.17-1.58a9.3 9.3 0 0 1-1.84-.88l.44-.34c3.55 1.65 7.4 1.65 10.9 0l.44.34c-.6.36-1.22.66-1.84.88l1.17 1.58a15.7 15.7 0 0 0 4.84-2.45c.38-4.03-.65-7.52-2.32-10.62ZM8.72 13.15c-.95 0-1.72-.86-1.72-1.91s.76-1.91 1.72-1.91c.97 0 1.74.86 1.72 1.91 0 1.05-.76 1.91-1.72 1.91Zm6.17 0c-.95 0-1.72-.86-1.72-1.91s.76-1.91 1.72-1.91c.97 0 1.74.86 1.72 1.91 0 1.05-.75 1.91-1.72 1.91Z"/>
+</svg>
+</div>
+
+Discord
+
+</button>
+
+
+</div>
+
+
+<div class="travail-contenu">
+
+<h2 id="titreTravail">
+Mes raccourcis
+</h2>
+
+<p id="texteTravail">
+
+Choisis un raccourci dans la liste.
+
+</p>
+
+<div id="siteInterne">
+
+<div class="site-bloque">
+
+<h2>💼 Espace Travail</h2>
+
+<p>
+
+Sélectionne un raccourci à gauche.
+
+Pour les sites qui ne peuvent pas être affichés directement,
+un bouton permettra de les ouvrir.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     RECHERCHE / MINI NAVIGATEUR
+===================================================== -->
+
+<section class="page hidden" id="recherche">
+
+<h1>🔎 Recherche</h1>
+
+<p>
+
+Colle un lien dans la barre ci-dessous.
+
+Les vidéos YouTube sont automatiquement intégrées
+dans le lecteur lorsqu'un lien compatible est utilisé.
+
+</p>
+
+
+<div class="mini-navigateur">
+
+
+<div class="browser-top">
+
+
+<button
+class="browser-btn"
+onclick="retourBrowser()"
+title="Retour"
+>
+←
+</button>
+
+
+<button
+class="browser-btn"
+onclick="avanceBrowser()"
+title="Avancer"
+>
+→
+</button>
+
+
+<button
+class="browser-btn"
+onclick="actualiserBrowser()"
+title="Actualiser"
+>
+↻
+</button>
+
+
+<button
+class="browser-btn"
+onclick="accueilBrowser()"
+title="Accueil"
+>
+⌂
+</button>
+
+
+<input
+type="text"
+id="urlInput"
+placeholder="Colle ici un lien..."
+>
+
+
+<button
+class="go-btn"
+onclick="ouvrirLien()"
+>
+
+Ouvrir
+
+</button>
+
+
+</div>
+
+
+<div class="browser-title" id="browserTitle">
+
+ Accueil du mini-navigateur
+
+</div>
+
+
+<div id="browserContent">
+
+
+<div class="browser-home">
+
+<div class="emoji">
+
+</div>
+
+<h2>Mini-navigateur</h2>
+
+<p>
+
+Colle un lien dans la barre située en haut.
+
+<br><br>
+
+▶️ Les liens de vidéos YouTube peuvent être affichés
+directement avec le lecteur intégré.
+
+<br><br>
+
+🌐 Certains sites peuvent refuser d'être affichés ici.
+Dans ce cas, utilise le bouton permettant de les ouvrir
+dans un nouvel onglet.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     THÈME
+===================================================== -->
+
+<section class="page hidden" id="theme">
+
+<h1 style="text-align:center;">
+ Personnalisation
+</h1>
+
+<p style="text-align:center;">
+
+Choisis la couleur du fond et du texte.
+
+</p>
+
+
+<div class="theme-section">
+
+<h2> Couleur du fond</h2>
+
+
+<div class="theme-buttons">
+
+
+<button class="theme-btn btn-blanc" onclick="changerTheme('theme-blanc')">
+🤍 Blanc
+</button>
+
+<button class="theme-btn btn-rose" onclick="changerTheme('theme-rose')">
+🌸 Rose
+</button>
+
+<button class="theme-btn btn-sombre" onclick="changerTheme('theme-sombre')">
+🌙 Sombre
+</button>
+
+<button class="theme-btn btn-bleu" onclick="changerTheme('theme-bleu')">
+💙 Bleu
+</button>
+
+<button class="theme-btn btn-violet" onclick="changerTheme('theme-violet')">
+💜 Violet
+</button>
+
+<button class="theme-btn btn-vert" onclick="changerTheme('theme-vert')">
+💚 Vert
+</button>
+
+<button class="theme-btn btn-rouge" onclick="changerTheme('theme-rouge')">
+❤️ Rouge
+</button>
+
+<button class="theme-btn btn-orange" onclick="changerTheme('theme-orange')">
+🧡 Orange
+</button>
+
+<button class="theme-btn btn-jaune" onclick="changerTheme('theme-jaune')">
+💛 Jaune
+</button>
+
+<button class="theme-btn btn-cyan" onclick="changerTheme('theme-cyan')">
+🩵 Cyan
+</button>
+
+<button class="theme-btn btn-indigo" onclick="changerTheme('theme-indigo')">
+🔵 Indigo
+</button>
+
+<button class="theme-btn btn-dore" onclick="changerTheme('theme-dore')">
+✨ Doré
+</button>
+
+<button class="theme-btn btn-turquoise" onclick="changerTheme('theme-turquoise')">
+🩵 Turquoise
+</button>
+
+<button class="theme-btn btn-marron" onclick="changerTheme('theme-marron')">
+🤎 Marron
+</button>
+
+<button class="theme-btn btn-gris" onclick="changerTheme('theme-gris')">
+🩶 Gris
+</button>
+
+<button class="theme-btn btn-ocean" onclick="changerTheme('theme-ocean')">
+🌊 Océan
+</button>
+
+<button class="theme-btn btn-coucher" onclick="changerTheme('theme-coucher')">
+🌅 Coucher
+</button>
+
+
+</div>
+
+</div>
+
+
+<div class="theme-section">
+
+<h2>📝 Couleur du texte du site</h2>
+
+
+<div class="text-color-buttons">
+
+
+<button
+class="text-color-btn texte-auto"
+onclick="texteAutomatique()"
+>
+
+ Automatique
+
+</button>
+
+
+<button
+class="text-color-btn texte-noir"
+onclick="changerTexte('#111111')"
+>
+
+⬛ Noir
+
+</button>
+
+
+<button
+class="text-color-btn texte-blanc"
+onclick="changerTexte('#ffffff')"
+>
+
+⬜ Blanc
+
+</button>
+
+
+<button
+class="text-color-btn texte-rouge"
+onclick="changerTexte('#d00000')"
+>
+
+🔴 Rouge
+
+</button>
+
+
+<button
+class="text-color-btn texte-bleu"
+onclick="changerTexte('#0055aa')"
+>
+
+🔵 Bleu
+
+</button>
+
+
+<button
+class="text-color-btn texte-vert"
+onclick="changerTexte('#087f23')"
+>
+
+🟢 Vert
+
+</button>
+
+
+<button
+class="text-color-btn texte-violet"
+onclick="changerTexte('#6200aa')"
+>
+
+🟣 Violet
+
+</button>
+
+
+<button
+class="text-color-btn texte-rose"
+onclick="changerTexte('#c2185b')"
+>
+
+🌸 Rose
+
+</button>
+
+
+<button
+class="text-color-btn texte-orange"
+onclick="changerTexte('#ff6600')"
+>
+
+🧡 Orange
+
+</button>
+
+
+<button
+class="text-color-btn texte-cyan"
+onclick="changerTexte('#008899')"
+>
+
+🩵 Cyan
+
+</button>
+
+
+<button
+class="text-color-btn texte-dore"
+onclick="changerTexte('#a67c00')"
+>
+
+✨ Doré
+
+</button>
+
+
+<button
+class="text-color-btn texte-turquoise"
+onclick="changerTexte('#008f7a')"
+>
+
+🟢 Turquoise
+
+</button>
+
+
+<button
+class="text-color-btn texte-gris"
+onclick="changerTexte('#666666')"
+>
+
+⚪ Gris
+
+</button>
+
+
+<button
+class="text-color-btn texte-magenta"
+onclick="changerTexte('#d000b7')"
+>
+
+💗 Magenta
+
+</button>
+
+
+<button
+class="text-color-btn texte-vertclair"
+onclick="changerTexte('#4d9c00')"
+>
+
+🟩 Vert clair
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PAGES
+===================================================== */
+
+const pages = [
+
+    "accueil",
+    "apropos",
+    "contact",
+    "travail",
+    "recherche",
+    "theme"
+
+];
+
+
+function afficherPage(pageChoisie) {
+
+    pages.forEach(function(page) {
+
+        const element =
+            document.getElementById(page);
+
+        if (page === pageChoisie) {
+
+            element.classList.remove("hidden");
+
+        } else {
+
+            element.classList.add("hidden");
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
+   THÈMES
+===================================================== */
+
+function changerTheme(theme) {
+
+    document.body.className =
+        theme;
+
+    localStorage.setItem(
+        "themeChoisi",
+        theme
+    );
+
+
+    if (
+        localStorage.getItem("modeTexte")
+        === "automatique"
+    ) {
+
+        texteAutomatique();
+
+    }
+
+}
+
+
+/* =====================================================
+   TEXTE MANUEL
+===================================================== */
+
+function changerTexte(couleur) {
+
+    document.body.style.setProperty(
+        "--texte",
+        couleur
+    );
+
+    localStorage.setItem(
+        "modeTexte",
+        "manuel"
+    );
+
+    localStorage.setItem(
+        "couleurTexte",
+        couleur
+    );
+
+}
+
+
+/* =====================================================
+   TEXTE AUTOMATIQUE
+===================================================== */
+
+function texteAutomatique() {
+
+    const theme =
+        document.body.className;
+
+
+    const themesSombres = [
+
+        "theme-sombre",
+        "theme-violet",
+        "theme-rouge",
+        "theme-indigo",
+        "theme-marron",
+        "theme-gris",
+        "theme-ocean",
+        "theme-coucher"
+
+    ];
+
+
+    let couleur;
+
+
+    if (
+        themesSombres.includes(theme)
+    ) {
+
+        couleur = "#ffffff";
+
+    } else {
+
+        couleur = "#111111";
+
+    }
+
+
+    document.body.style.setProperty(
+        "--texte",
+        couleur
+    );
+
+
+    localStorage.setItem(
+        "modeTexte",
+        "automatique"
+    );
+
+}
+
+
+/* =====================================================
+   TRAVAIL
+===================================================== */
+
+function ouvrirTravail(site) {
+
+
+    const titre =
+        document.getElementById("titreTravail");
+
+    const texte =
+        document.getElementById("texteTravail");
+
+    const zone =
+        document.getElementById("siteInterne");
+
+
+    let nom = "";
+    let url = "";
+
+
+    if (site === "youtube") {
+
+        nom = "YouTube";
+        url = "https://www.youtube.com/";
+
+    }
+
+
+    if (site === "spotify") {
+
+        nom = "Spotify";
+        url = "https://open.spotify.com/";
+
+    }
+
+
+    if (site === "notube") {
+
+        nom = "noTube";
+        url =
+        "https://notube.lol/fr/youtube-app-413";
+
+    }
+
+
+    if (site === "tiktok") {
+
+        nom = "TikTok";
+        url = "https://www.tiktok.com/";
+
+    }
+
+
+    if (site === "chatgpt") {
+
+        nom = "ChatGPT";
+        url = "https://chatgpt.com/";
+
+    }
+
+
+    if (site === "wikipedia") {
+
+        nom = "Wikipédia";
+        url = "https://fr.wikipedia.org/";
+
+    }
+
+
+    if (site === "whatsapp") {
+
+        nom = "WhatsApp";
+        url = "https://web.whatsapp.com/";
+
+    }
+
+
+    if (site === "discord") {
+
+        nom = "Discord";
+        url = "https://discord.com/app";
+
+    }
+
+
+    titre.textContent =
+        nom;
+
+
+    texte.textContent =
+        "Ce site peut bloquer son affichage dans une page externe.";
+
+
+    zone.innerHTML =
+
+    '<div class="site-bloque">' +
+
+    '<h2>🌐 ' + nom + '</h2>' +
+
+    '<p>' +
+
+    'Certains sites ne permettent pas ' +
+    'leur affichage complet dans un mini-navigateur. ' +
+
+    '<br><br>' +
+
+    'Tu peux toutefois ouvrir le site normalement.' +
+
+    '</p>' +
+
+    '<a class="ouvrir-site" ' +
+
+    'href="' + url + '" ' +
+
+    'target="_blank" ' +
+
+    'rel="noopener noreferrer">' +
+
+    '🚀 Ouvrir ' + nom +
+
+    '</a>' +
+
+    '</div>';
+
+}
+
+
+/* =====================================================
+   DÉPLACEMENT ET SUPPRESSION DES RACCOURCIS TRAVAIL
+===================================================== */
+
+let raccourciEnCours = null;
+let raccourciOriginal = null;
+let appuiLongTimer = null;
+let estEnDeplacement = false;
+let decalageX = 0;
+let decalageY = 0;
+
+
+function initialiserRaccourcisTravail() {
+
+    const raccourcis =
+        document.querySelectorAll(".travail-raccourci");
+
+
+    raccourcis.forEach(function(raccourci) {
+
+        raccourci.addEventListener(
+            "pointerdown",
+            commencerAppuiLong
+        );
+
+
+        raccourci.addEventListener(
+            "contextmenu",
+            supprimerRaccourci
+        );
+
+    });
+
+}
+
+
+function commencerAppuiLong(event) {
+
+    if (event.button !== 0) {
+
+        return;
+
+    }
+
+
+    const raccourci =
+        event.currentTarget;
+
+
+    raccourciOriginal = raccourci;
+
+
+    appuiLongTimer =
+        setTimeout(function() {
+
+            demarrerDeplacement(
+                raccourci,
+                event
+            );
+
+        }, 500);
+
+
+    function annuler() {
+
+        clearTimeout(appuiLongTimer);
+
+
+        raccourci.removeEventListener(
+            "pointerup",
+            annuler
+        );
+
+
+        raccourci.removeEventListener(
+            "pointercancel",
+            annuler
+        );
+
+    }
+
+
+    raccourci.addEventListener(
+        "pointerup",
+        annuler
+    );
+
+
+    raccourci.addEventListener(
+        "pointercancel",
+        annuler
+    );
+
+}
+
+
+function demarrerDeplacement(raccourci, event) {
+
+    estEnDeplacement = true;
+
+    raccourciEnCours =
+        raccourci;
+
+
+    const rectangle =
+        raccourci.getBoundingClientRect();
+
+
+    decalageX =
+        event.clientX - rectangle.left;
+
+
+    decalageY =
+        event.clientY - rectangle.top;
+
+
+    raccourci.classList.add(
+        "dragging"
+    );
+
+
+    raccourci.style.width =
+        rectangle.width + "px";
+
+
+    raccourci.style.left =
+        rectangle.left + "px";
+
+
+    raccourci.style.top =
+        rectangle.top + "px";
+
+
+    document.addEventListener(
+        "pointermove",
+        deplacerRaccourci
+    );
+
+
+    document.addEventListener(
+        "pointerup",
+        terminerDeplacement,
+        { once: true }
+    );
+
+}
+
+
+function deplacerRaccourci(event) {
+
+    if (
+        !estEnDeplacement
+        ||
+        !raccourciEnCours
+    ) {
+
+        return;
+
+    }
+
+
+    raccourciEnCours.style.left =
+        (
+            event.clientX - decalageX
+        ) + "px";
+
+
+    raccourciEnCours.style.top =
+        (
+            event.clientY - decalageY
+        ) + "px";
+
+}
+
+
+function terminerDeplacement(event) {
+
+    clearTimeout(appuiLongTimer);
+
+    document.removeEventListener(
+        "pointermove",
+        deplacerRaccourci
+    );
+
+
+    if (
+        !raccourciEnCours
+    ) {
+
+        return;
+
+    }
+
+
+    const zone =
+        document.querySelector(
+            ".travail-raccourcis"
+        );
+
+
+    const autres =
+        Array.from(
+            zone.querySelectorAll(
+                ".travail-raccourci:not(.dragging)"
+            )
+        );
+
+
+    let elementAvant = null;
+
+
+    autres.forEach(function(element) {
+
+        const rectangle =
+            element.getBoundingClientRect();
+
+        const milieu =
+            rectangle.top +
+            rectangle.height / 2;
+
+
+        if (
+            event.clientY < milieu
+            &&
+            !elementAvant
+        ) {
+
+            elementAvant =
+                element;
+
+        }
+
+    });
+
+
+    raccourciEnCours.classList.remove(
+        "dragging"
+    );
+
+
+    raccourciEnCours.style.width = "";
+    raccourciEnCours.style.left = "";
+    raccourciEnCours.style.top = "";
+
+
+    if (elementAvant) {
+
+        zone.insertBefore(
+            raccourciEnCours,
+            elementAvant
+        );
+
+    } else {
+
+        zone.appendChild(
+            raccourciEnCours
+        );
+
+    }
+
+
+    estEnDeplacement = false;
+    raccourciEnCours = null;
+
+}
+
+
+function supprimerRaccourci(event) {
+
+    if (estEnDeplacement) {
+
+        return;
+
+    }
+
+
+    event.preventDefault();
+    event.stopPropagation();
+
+
+    const raccourci =
+        event.currentTarget;
+
+
+    const nom =
+        raccourci.textContent.trim();
+
+
+    const confirmation =
+        confirm(
+            'Veux-tu vraiment enlever le raccourci "' +
+            nom +
+            '" de l\'onglet Travail ?'
+        );
+
+
+    if (confirmation) {
+
+        raccourci.remove();
+
+    }
+
+}
+
+
+/* =====================================================
+   MINI NAVIGATEUR
+===================================================== */
+
+let historique = [];
+let positionHistorique = -1;
+
+
+function extraireYouTubeID(url) {
+
+    try {
+
+        const parsed =
+            new URL(url);
+
+
+        if (
+            parsed.hostname.includes("youtu.be")
+        ) {
+
+            return parsed.pathname.slice(1);
+
+        }
+
+
+        if (
+            parsed.hostname.includes("youtube.com")
+        ) {
+
+            return parsed.searchParams.get("v");
+
+        }
+
+    }
+
+    catch (erreur) {
+
+        return null;
+
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   OUVRIR UN LIEN
+===================================================== */
+
+function ouvrirLien() {
+
+    let url =
+        document
+        .getElementById("urlInput")
+        .value
+        .trim();
+
+
+    if (url === "") {
+
+        alert(
+            "Entre ou colle un lien."
+        );
+
+        return;
+
+    }
+
+
+    if (
+        !url.startsWith("http://")
+        &&
+        !url.startsWith("https://")
+    ) {
+
+        url =
+            "https://" + url;
+
+    }
+
+
+    chargerURL(
+        url,
+        true
+    );
+
+}
+
+
+/* =====================================================
+   CHARGER UNE URL
+===================================================== */
+
+function chargerURL(
+    url,
+    ajouterHistorique
+) {
+
+    const contenu =
+        document.getElementById(
+            "browserContent"
+        );
+
+
+    const titre =
+        document.getElementById(
+            "browserTitle"
+        );
+
+
+    document
+        .getElementById("urlInput")
+        .value = url;
+
+
+    const youtubeID =
+        extraireYouTubeID(url);
+
+
+    if (youtubeID) {
+
+        titre.textContent =
+            "▶️ YouTube - Lecteur intégré";
+
+
+        contenu.innerHTML =
+
+        '<iframe ' +
+
+        'src="https://www.youtube.com/embed/' +
+        youtubeID +
+        '" ' +
+
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+
+        'allowfullscreen>' +
+
+        '</iframe>';
+
+    }
+
+    else {
+
+        titre.textContent =
+            "🌐 " + url;
+
+
+        contenu.innerHTML =
+
+        '<div class="site-bloque">' +
+
+        '<h2>🌐 Site externe</h2>' +
+
+        '<p>' +
+
+        'Le mini-navigateur ne peut pas garantir ' +
+        'que ce site accepte l\'affichage intégré. ' +
+
+        '<br><br>' +
+
+        'Tu peux essayer de l\'ouvrir ici ou ' +
+        'l\'ouvrir dans un nouvel onglet.' +
+
+        '</p>' +
+
+        '<button class="ouvrir-site" ' +
+
+        'onclick="essayerIframe()">' +
+
+        '🖥️ Essayer dans le rectangle' +
+
+        '</button>' +
+
+        '<a class="ouvrir-site" ' +
+
+        'href="' + url + '" ' +
+
+        'target="_blank" ' +
+
+        'rel="noopener noreferrer">' +
+
+        '🚀 Ouvrir dans un nouvel onglet' +
+
+        '</a>' +
+
+        '</div>';
+
+    }
+
+
+    if (ajouterHistorique) {
+
+        historique =
+            historique.slice(
+                0,
+                positionHistorique + 1
+            );
+
+
+        historique.push(url);
+
+
+        positionHistorique =
+            historique.length - 1;
+
+    }
+
+}
+
+
+/* =====================================================
+   ESSAYER IFRAME
+===================================================== */
+
+function essayerIframe() {
+
+    const url =
+        document
+        .getElementById("urlInput")
+        .value;
+
+
+    document
+    .getElementById("browserContent")
+    .innerHTML =
+
+    '<iframe ' +
+
+    'src="' + url + '" ' +
+
+    'title="Site externe">' +
+
+    '</iframe>';
+
+}
+
+
+/* =====================================================
+   RETOUR
+===================================================== */
+
+function retourBrowser() {
+
+    if (positionHistorique > 0) {
+
+        positionHistorique--;
+
+
+        chargerURL(
+            historique[positionHistorique],
+            false
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   AVANCE
+===================================================== */
+
+function avanceBrowser() {
+
+    if (
+        positionHistorique
+        <
+        historique.length - 1
+    ) {
+
+        positionHistorique++;
+
+
+        chargerURL(
+            historique[positionHistorique],
+            false
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ACTUALISER
+===================================================== */
+
+function actualiserBrowser() {
+
+    if (
+        positionHistorique >= 0
+    ) {
+
+        chargerURL(
+            historique[positionHistorique],
+            false
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ACCUEIL MINI NAVIGATEUR
+===================================================== */
+
+function accueilBrowser() {
+
+    document
+        .getElementById("urlInput")
+        .value = "";
+
+
+    document
+        .getElementById("browserTitle")
+        .textContent =
+        "🏠 Accueil du mini-navigateur";
+
+
+    document
+        .getElementById("browserContent")
+        .innerHTML =
+
+        '<div class="browser-home">' +
+
+        '<div class="emoji">🌐</div>' +
+
+        '<h2>Mini-navigateur</h2>' +
+
+        '<p>' +
+
+        'Colle un lien dans la barre située en haut.' +
+
+        '<br><br>' +
+
+        '▶️ Les vidéos YouTube compatibles ' +
+        'peuvent être intégrées directement.' +
+
+        '<br><br>' +
+
+        '🌐 Certains sites peuvent bloquer ' +
+        'leur affichage dans le rectangle.' +
+
+        '</p>' +
+
+        '</div>';
+
+}
+
+
+/* =====================================================
+   SAUVEGARDE AU DÉMARRAGE
+===================================================== */
+
+const themeSauvegarde =
+    localStorage.getItem(
+        "themeChoisi"
+    );
+
+
+if (themeSauvegarde) {
+
+    document.body.className =
+        themeSauvegarde;
+
+}
+
+
+const modeTexte =
+    localStorage.getItem(
+        "modeTexte"
+    );
+
+
+if (
+    modeTexte === "automatique"
+) {
+
+    texteAutomatique();
+
+}
+
+
+if (
+    modeTexte === "manuel"
+) {
+
+    const couleurSauvegardee =
+        localStorage.getItem(
+            "couleurTexte"
+        );
+
+
+    if (couleurSauvegardee) {
+
+        document.body.style.setProperty(
+            "--texte",
+            couleurSauvegardee
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ENTRÉE POUR OUVRIR UN LIEN
+===================================================== */
+
+document
+.getElementById("urlInput")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            ouvrirLien();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INITIALISATION DES RACCOURCIS TRAVAIL
+===================================================== */
+
+initialiserRaccourcisTravail();
+
+
+/* =====================================================
+   PAGE D'ACCUEIL
+===================================================== */
+
+afficherPage("accueil");
+
+
+
+/* =====================================================
+   DÉPLACEMENT PAR APPUI LONG — ACCUEIL ET ONGLETS
+===================================================== */
+
+function restaurerOrdre(zoneSelector, itemSelector, cle) {
+    const ordre = JSON.parse(localStorage.getItem(cle) || "[]");
+    const zone = document.querySelector(zoneSelector);
+    ordre.forEach(function(id) {
+        const item = zone.querySelector(itemSelector + '[data-id="' + id + '"]');
+        if (item) zone.appendChild(item);
+    });
+}
+
+function sauvegarderOrdre(zoneSelector, itemSelector, cle) {
+    const ordre = Array.from(document.querySelectorAll(zoneSelector + " " + itemSelector))
+        .map(function(item) { return item.dataset.id; });
+    localStorage.setItem(cle, JSON.stringify(ordre));
+}
+
+function activerDeplacement(zoneSelector, itemSelector, cle, classeDrag, type) {
+
+    const zone = document.querySelector(zoneSelector);
+
+    document.querySelectorAll(zoneSelector + " " + itemSelector).forEach(function(item) {
+
+        item.dataset.id = type === "shortcut"
+            ? item.dataset.shortcutId
+            : item.dataset.tabId;
+
+        let timer = null;
+        let dragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        item.addEventListener("pointerdown", function(event) {
+            if (event.button !== 0) return;
+
+            timer = setTimeout(function() {
+                dragging = true;
+
+                const rect = item.getBoundingClientRect();
+                offsetX = event.clientX - rect.left;
+                offsetY = event.clientY - rect.top;
+
+                item.classList.add(classeDrag);
+                item.style.width = rect.width + "px";
+                item.style.height = rect.height + "px";
+                item.style.left = rect.left + "px";
+                item.style.top = rect.top + "px";
+            }, 500);
+        });
+
+        document.addEventListener("pointermove", function(event) {
+            if (!dragging) return;
+            item.style.left = (event.clientX - offsetX) + "px";
+            item.style.top = (event.clientY - offsetY) + "px";
+        });
+
+        document.addEventListener("pointerup", function(event) {
+            clearTimeout(timer);
+            if (!dragging) return;
+
+            const others = Array.from(
+                zone.querySelectorAll(itemSelector + ":not(." + classeDrag + ")")
+            );
+
+            let before = null;
+
+            for (const other of others) {
+                const rect = other.getBoundingClientRect();
+                const middle = rect.left + rect.width / 2;
+
+                if (event.clientX < middle) {
+                    before = other;
+                    break;
+                }
+            }
+
+            item.classList.remove(classeDrag);
+            item.style.width = "";
+            item.style.height = "";
+            item.style.left = "";
+            item.style.top = "";
+
+            if (before) {
+                zone.insertBefore(item, before);
+            } else {
+                zone.appendChild(item);
+            }
+
+            sauvegarderOrdre(zoneSelector, itemSelector, cle);
+
+            setTimeout(function() {
+                dragging = false;
+            }, 50);
+        });
+    });
+}
+
+
+/* Restaurer les positions enregistrées */
+document.querySelectorAll(".logos .logo-btn").forEach(function(item) {
+    item.dataset.id = item.dataset.shortcutId;
+});
+
+document.querySelectorAll("nav .menu-btn").forEach(function(item) {
+    item.dataset.id = item.dataset.tabId;
+});
+
+restaurerOrdre(".logos", ".logo-btn", "ordreAccueil");
+restaurerOrdre("nav", ".menu-btn", "ordreOnglets");
+
+
+/* Activer le déplacement */
+activerDeplacement(
+    ".logos",
+    ".logo-btn",
+    "ordreAccueil",
+    "dragging-home",
+    "shortcut"
+);
+
+activerDeplacement(
+    "nav",
+    ".menu-btn",
+    "ordreOnglets",
+    "dragging-tab",
+    "tab"
+);
+
+
+/* =====================================================
+   POSITION LIBRE — DÉPLACEMENT SUR TOUTE LA PAGE
+   Double clic droit (clic droit) pour remettre à zéro
+===================================================== */
+
+function chargerPositionsLibres() {
+    document.querySelectorAll(".logo-btn[data-free-id], .menu-btn[data-free-id]")
+    .forEach(function(element) {
+        const pos = JSON.parse(
+            localStorage.getItem("position_" + element.dataset.freeId) || "null"
+        );
+
+        if (pos && typeof pos.x === "number" && typeof pos.y === "number") {
+            element.classList.add("position-libre");
+            element.style.left = pos.x + "px";
+            element.style.top = pos.y + "px";
+        }
+    });
+}
+
+function rendrePositionLibre(selector, prefix) {
+
+    document.querySelectorAll(selector).forEach(function(element, index) {
+
+        const id = prefix + "_" +
+            (element.dataset.shortcutId || element.dataset.tabId || index);
+
+        element.dataset.freeId = id;
+
+        let timer = null;
+        let actif = false;
+        let xOffset = 0;
+        let yOffset = 0;
+        let aBouge = false;
+
+        element.addEventListener("pointerdown", function(event) {
+
+            if (event.button !== 0) return;
+
+            aBouge = false;
+
+            timer = setTimeout(function() {
+
+                actif = true;
+
+                const rect = element.getBoundingClientRect();
+
+                xOffset = event.clientX - rect.left;
+                yOffset = event.clientY - rect.top;
+
+                element.classList.add("position-libre");
+
+                element.style.width = rect.width + "px";
+                element.style.height = rect.height + "px";
+
+                element.setPointerCapture?.(event.pointerId);
+
+            }, 500);
+
+        });
+
+        document.addEventListener("pointermove", function(event) {
+
+            if (!actif) return;
+
+            aBouge = true;
+
+            let x = event.clientX - xOffset;
+            let y = event.clientY - yOffset;
+
+            // Empêche seulement le raccourci de sortir complètement de l'écran
+            const rect = element.getBoundingClientRect();
+
+            x = Math.max(-rect.width + 20,
+                Math.min(window.innerWidth - 20, x));
+
+            y = Math.max(-rect.height + 20,
+                Math.min(window.innerHeight - 20, y));
+
+            element.style.left = x + "px";
+            element.style.top = y + "px";
+
+        });
+
+        document.addEventListener("pointerup", function() {
+
+            clearTimeout(timer);
+
+            if (!actif) return;
+
+            const rect = element.getBoundingClientRect();
+
+            localStorage.setItem(
+                "position_" + id,
+                JSON.stringify({
+                    x: rect.left,
+                    y: rect.top
+                })
+            );
+
+            actif = false;
+
+        });
+
+    });
+}
+
+
+/* Clic droit sur un raccourci de l'accueil = remettre à sa position normale */
+document.addEventListener("contextmenu", function(event) {
+
+    const element = event.target.closest(
+        ".logo-btn.position-libre, .menu-btn.position-libre"
+    );
+
+    if (!element) return;
+
+    event.preventDefault();
+
+    const id = element.dataset.freeId;
+
+    if (confirm("Remettre cet élément à sa position normale ?")) {
+
+        localStorage.removeItem("position_" + id);
+
+        element.classList.remove("position-libre");
+        element.style.left = "";
+        element.style.top = "";
+        element.style.width = "";
+        element.style.height = "";
+
+    }
+
+});
+
+
+rendrePositionLibre(".logos .logo-btn", "raccourci");
+rendrePositionLibre("nav .menu-btn", "onglet");
+
+chargerPositionsLibres();
+
+
+/* =====================================================
+   NOUVEAU DÉPLACEMENT — PLUSIEURS LIGNES
+===================================================== */
+
+function effacerAnciennesPositionsLibres() {
+    document.querySelectorAll(".logo-btn, .menu-btn").forEach(function(el) {
+        el.classList.remove("position-libre");
+        el.classList.remove("dragging-home");
+        el.classList.remove("dragging-tab");
+        el.style.left = "";
+        el.style.top = "";
+        el.style.width = "";
+        el.style.height = "";
+    });
+}
+
+
+/* Réorganiser visuellement selon la position de la souris */
+function activerTriParGlisser(zoneSelector, itemSelector, storageKey) {
+
+    const zone = document.querySelector(zoneSelector);
+    if (!zone) return;
+
+    let elementActif = null;
+    let timer = null;
+    let enDeplacement = false;
+    let positionInitiale = null;
+
+
+    zone.querySelectorAll(itemSelector).forEach(function(item) {
+
+        item.addEventListener("pointerdown", function(event) {
+
+            if (event.button !== 0) return;
+
+            positionInitiale = {
+                x: event.clientX,
+                y: event.clientY
+            };
+
+            timer = setTimeout(function() {
+
+                enDeplacement = true;
+                elementActif = item;
+
+                item.setPointerCapture?.(event.pointerId);
+
+                item.style.pointerEvents = "none";
+                item.classList.add("dragging-home");
+
+            }, 450);
+
+        });
+
+    });
+
+
+    document.addEventListener("pointermove", function(event) {
+
+        if (!enDeplacement || !elementActif) return;
+
+        const autres = Array.from(
+            zone.querySelectorAll(itemSelector)
+        ).filter(function(el) {
+            return el !== elementActif;
+        });
+
+        let cible = null;
+        let avant = true;
+        let distanceMin = Infinity;
+
+        autres.forEach(function(autre) {
+
+            const rect = autre.getBoundingClientRect();
+
+            const centreX = rect.left + rect.width / 2;
+            const centreY = rect.top + rect.height / 2;
+
+            const distance =
+                Math.pow(event.clientX - centreX, 2) +
+                Math.pow(event.clientY - centreY, 2);
+
+            if (distance < distanceMin) {
+                distanceMin = distance;
+                cible = autre;
+
+                // Sur une même ligne : gauche/droite.
+                // Sur une autre ligne : avant/après selon le centre.
+                if (Math.abs(event.clientY - centreY) < rect.height / 2) {
+                    avant = event.clientX < centreX;
+                } else {
+                    avant = event.clientY < centreY;
+                }
+            }
+
+        });
+
+        if (cible) {
+            if (avant) {
+                zone.insertBefore(elementActif, cible);
+            } else {
+                zone.insertBefore(elementActif, cible.nextSibling);
+            }
+        }
+
+    });
+
+
+    document.addEventListener("pointerup", function() {
+
+        clearTimeout(timer);
+
+        if (!enDeplacement || !elementActif) return;
+
+        elementActif.style.pointerEvents = "";
+        elementActif.classList.remove("dragging-home");
+        elementActif.classList.remove("dragging-tab");
+
+        const ordre = Array.from(
+            zone.querySelectorAll(itemSelector)
+        ).map(function(el) {
+            return el.dataset.shortcutId || el.dataset.tabId || el.textContent.trim();
+        });
+
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(ordre)
+        );
+
+        enDeplacement = false;
+        elementActif = null;
+
+    });
+
+
+    // Restaurer l'ordre sauvegardé
+    const ordreSauvegarde = JSON.parse(
+        localStorage.getItem(storageKey) || "[]"
+    );
+
+    ordreSauvegarde.forEach(function(id) {
+
+        const element = Array.from(
+            zone.querySelectorAll(itemSelector)
+        ).find(function(el) {
+            return (
+                el.dataset.shortcutId === id ||
+                el.dataset.tabId === id ||
+                el.textContent.trim() === id
+            );
+        });
+
+        if (element) {
+            zone.appendChild(element);
+        }
+
+    });
+
+}
+
+
+effacerAnciennesPositionsLibres();
+
+activerTriParGlisser(
+    ".logos",
+    ".logo-btn",
+    "ordreRaccourcisAccueilLignes"
+);
+
+activerTriParGlisser(
+    "nav",
+    ".menu-btn",
+    "ordreOngletsLignes"
+);
+
+
+/* =====================================================
+   COMMANDE TEXTE : PLUS GRAND / PLUS PETIT
+===================================================== */
+
+let tailleLogos = parseFloat(
+    localStorage.getItem("tailleLogos") || "1"
+);
+
+function appliquerTailleLogos() {
+
+    // Limites pour éviter des logos trop petits ou gigantesques
+    tailleLogos = Math.max(0.5, Math.min(2.5, tailleLogos));
+
+    document.querySelectorAll(".logos .logo-btn")
+    .forEach(function(logo) {
+        logo.style.setProperty(
+            "--taille-logo",
+            tailleLogos
+        );
+    });
+
+    localStorage.setItem(
+        "tailleLogos",
+        tailleLogos
+    );
+}
+
+
+appliquerTailleLogos();
+
+
+const champCommandeLogo =
+    document.getElementById("commandeLogo");
+
+
+if (champCommandeLogo) {
+
+    champCommandeLogo.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key !== "Enter") return;
+
+            const commande =
+                champCommandeLogo.value
+                .trim()
+                .toLowerCase();
+
+
+            if (commande === "plus grand") {
+
+                tailleLogos =
+                    tailleLogos * 1.10;
+
+                appliquerTailleLogos();
+
+            }
+
+
+            else if (commande === "plus petit") {
+
+                tailleLogos =
+                    tailleLogos * 0.90;
+
+                appliquerTailleLogos();
+
+            }
+
+        }
+    );
+
+}
+/* =====================================================
+   COMMANDE TEXTE — ONGLET TRAVAIL
+===================================================== */
+
+let tailleLogosTravail = parseFloat(
+    localStorage.getItem("tailleLogosTravail") || "1"
+);
+
+function appliquerTailleLogosTravail() {
+
+    tailleLogosTravail = Math.max(
+        0.5,
+        Math.min(2.5, tailleLogosTravail)
+    );
+
+    document.querySelectorAll(
+        "#travail .travail-raccourci"
+    ).forEach(function(logo) {
+
+        logo.style.transform =
+            "scale(" + tailleLogosTravail + ")";
+
+        logo.style.transformOrigin =
+            "center";
+
+        logo.style.transition =
+            "transform 0.25s ease";
+
+    });
+
+    localStorage.setItem(
+        "tailleLogosTravail",
+        tailleLogosTravail
+    );
+}
+
+
+appliquerTailleLogosTravail();
+
+
+const champCommandeTravail =
+    document.getElementById("commandeTravail");
+
+
+if (champCommandeTravail) {
+
+    champCommandeTravail.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key !== "Enter") return;
+
+            const commande =
+                champCommandeTravail.value
+                .trim()
+                .toLowerCase();
+
+
+            if (commande === "plus grand") {
+
+                tailleLogosTravail =
+                    tailleLogosTravail * 1.10;
+
+                appliquerTailleLogosTravail();
+
+            }
+
+
+            else if (commande === "plus petit") {
+
+                tailleLogosTravail =
+                    tailleLogosTravail * 0.90;
+
+                appliquerTailleLogosTravail();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ADAPTATION AUTOMATIQUE — TOUJOURS VOIR LES LOGOS
+===================================================== */
+
+function adapterZoneRaccourcisAccueil() {
+    const zone = document.querySelector(".logos");
+    if (!zone) return;
+
+    // L'espace entre les éléments diminue légèrement quand ils deviennent grands
+    const espace = tailleLogos > 1.5 ? 20 : 14;
+    zone.style.gap = espace + "px";
+
+    // Chaque ligne reste centrée et les logos passent automatiquement à la ligne.
+    zone.style.flexWrap = "wrap";
+}
+
+
+function adapterZoneRaccourcisTravail() {
+    const zone = document.querySelector("#travail .travail-raccourcis");
+    if (!zone) return;
+
+    zone.style.flexWrap = "wrap";
+    zone.style.justifyContent = "center";
+}
+
+
+const ancienneAppliquerAccueil = appliquerTailleLogos;
+
+appliquerTailleLogos = function() {
+
+    ancienneAppliquerAccueil();
+
+    adapterZoneRaccourcisAccueil();
+
+};
+
+
+const ancienneAppliquerTravail = appliquerTailleLogosTravail;
+
+appliquerTailleLogosTravail = function() {
+
+    ancienneAppliquerTravail();
+
+    adapterZoneRaccourcisTravail();
+
+};
+
+
+window.addEventListener("resize", function() {
+
+    adapterZoneRaccourcisAccueil();
+    adapterZoneRaccourcisTravail();
+
+});
+
+
+adapterZoneRaccourcisAccueil();
+adapterZoneRaccourcisTravail();
+
+
+/* =====================================================
+   TAILLE RÉELLE + ESPACEMENT AUTOMATIQUE
+===================================================== */
+
+function appliquerEspacementEtTailleAccueil() {
+
+    const zone = document.querySelector(".logos");
+    if (!zone) return;
+
+    const base = 62;
+    const taille = Math.max(0.5, Math.min(2.5, tailleLogos));
+
+    // Plus les logos sont grands, plus ils s'écartent.
+    zone.style.gap = Math.round(14 * taille + 6) + "px";
+
+    zone.querySelectorAll(".logo-btn").forEach(function(logo) {
+
+        const dimension = Math.round(base * taille);
+
+        logo.style.width = dimension + "px";
+        logo.style.height = dimension + "px";
+        logo.style.minWidth = dimension + "px";
+        logo.style.minHeight = dimension + "px";
+        logo.style.transform = "none";
+
+        // Le contenu interne reste proportionnel.
+        const logoInterne =
+            logo.querySelector(".whatsapp-logo, .discord-logo");
+
+        if (logoInterne) {
+            const interne = Math.round(46 * taille);
+            logoInterne.style.width = interne + "px";
+            logoInterne.style.height = interne + "px";
+        }
+
+    });
+
+}
+
+
+function appliquerEspacementEtTailleTravail() {
+
+    const zone = document.querySelector(
+        "#travail .travail-raccourcis"
+    );
+
+    if (!zone) return;
+
+    const taille = Math.max(
+        0.5,
+        Math.min(2.5, tailleLogosTravail)
+    );
+
+    zone.style.gap =
+        Math.round(16 * taille + 6) + "px";
+
+    zone.querySelectorAll(".travail-raccourci")
+    .forEach(function(raccourci) {
+
+        raccourci.style.transform = "none";
+        raccourci.style.zoom = taille;
+
+    });
+
+}
+
+
+/* Remplace l'ancien affichage par une taille qui prend réellement de la place */
+const ancienneAppliquerAccueilFinal = appliquerTailleLogos;
+
+appliquerTailleLogos = function() {
+    ancienneAppliquerAccueilFinal();
+    appliquerEspacementEtTailleAccueil();
+};
+
+
+const ancienneAppliquerTravailFinal =
+    appliquerTailleLogosTravail;
+
+appliquerTailleLogosTravail = function() {
+    ancienneAppliquerTravailFinal();
+    appliquerEspacementEtTailleTravail();
+};
+
+
+/* Appliquer immédiatement */
+appliquerEspacementEtTailleAccueil();
+appliquerEspacementEtTailleTravail();
+
+
+window.addEventListener("resize", function() {
+    appliquerEspacementEtTailleAccueil();
+    appliquerEspacementEtTailleTravail();
+});
+
+
+/* =====================================================
+   WIDGET SPOTIFY — LECTURE EN DIRECT
+===================================================== */
+
+// ⚠️ À CONFIGURER : colle ici le "Client ID" de ton application
+// créée sur https://developer.spotify.com/dashboard
+const SPOTIFY_CLIENT_ID = "COLLE_TON_CLIENT_ID_SPOTIFY_ICI";
+
+// Calculée automatiquement à partir de l'adresse de la page.
+// Il faut recopier EXACTEMENT cette adresse dans le champ
+// "Redirect URIs" de ton application, sur le dashboard Spotify.
+const SPOTIFY_REDIRECT_URI =
+    window.location.origin + window.location.pathname;
+
+const SPOTIFY_SCOPES =
+    "user-read-currently-playing user-read-playback-state";
+
+
+const spotifyEls = {
+    connect: document.getElementById("spotifyConnect"),
+    player: document.getElementById("spotifyPlayer"),
+    vide: document.getElementById("spotifyVide"),
+    cover: document.getElementById("spotifyCover"),
+    titre: document.getElementById("spotifyTitre"),
+    artiste: document.getElementById("spotifyArtiste"),
+    progression: document.getElementById("spotifyProgression"),
+    tempsActuel: document.getElementById("spotifyTempsActuel"),
+    tempsTotal: document.getElementById("spotifyTempsTotal"),
+    loginBtn: document.getElementById("spotifyLoginBtn")
+};
+
+
+function genererChaineAleatoire(longueur) {
+
+    const caracteres =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    let resultat = "";
+
+    const valeurs = crypto.getRandomValues(new Uint8Array(longueur));
+
+    valeurs.forEach(function(v) {
+        resultat += caracteres[v % caracteres.length];
+    });
+
+    return resultat;
+}
+
+
+async function creerCodeChallenge(verifier) {
+
+    const donnees = new TextEncoder().encode(verifier);
+    const hache = await crypto.subtle.digest("SHA-256", donnees);
+
+    return btoa(String.fromCharCode(...new Uint8Array(hache)))
+        .replace(/\+/g, "-")
+        .replace(/\//g, "_")
+        .replace(/=+$/, "");
+}
+
+
+async function demarrerConnexionSpotify() {
+
+    if (!SPOTIFY_CLIENT_ID || SPOTIFY_CLIENT_ID.indexOf("COLLE_TON") === 0) {
+        alert(
+            "Il faut d'abord configurer SPOTIFY_CLIENT_ID dans le code " +
+            "(voir les instructions juste au-dessus dans le script)."
+        );
+        return;
+    }
+
+    const verifier = genererChaineAleatoire(64);
+    localStorage.setItem("spotify_verifier", verifier);
+
+    const challenge = await creerCodeChallenge(verifier);
+
+    const params = new URLSearchParams({
+        client_id: SPOTIFY_CLIENT_ID,
+        response_type: "code",
+        redirect_uri: SPOTIFY_REDIRECT_URI,
+        scope: SPOTIFY_SCOPES,
+        code_challenge_method: "S256",
+        code_challenge: challenge
+    });
+
+    window.location.href =
+        "https://accounts.spotify.com/authorize?" + params.toString();
+}
+
+
+if (spotifyEls.loginBtn) {
+    spotifyEls.loginBtn.addEventListener("click", demarrerConnexionSpotify);
+}
+
+
+function enregistrerJetonsSpotify(donnees) {
+
+    localStorage.setItem("spotify_access_token", donnees.access_token);
+
+    if (donnees.refresh_token) {
+        localStorage.setItem("spotify_refresh_token", donnees.refresh_token);
+    }
+
+    localStorage.setItem(
+        "spotify_expire_a",
+        Date.now() + donnees.expires_in * 1000
+    );
+}
+
+
+async function echangerCodeContreJetonSpotify(code) {
+
+    const verifier = localStorage.getItem("spotify_verifier");
+
+    const corps = new URLSearchParams({
+        client_id: SPOTIFY_CLIENT_ID,
+        grant_type: "authorization_code",
+        code: code,
+        redirect_uri: SPOTIFY_REDIRECT_URI,
+        code_verifier: verifier
+    });
+
+    try {
+
+        const reponse = await fetch("https://accounts.spotify.com/api/token", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: corps
+        });
+
+        if (!reponse.ok) return;
+
+        const donnees = await reponse.json();
+        enregistrerJetonsSpotify(donnees);
+
+    } catch (erreur) {
+        // Silencieux : la connexion pourra être retentée
+    }
+}
+
+
+async function rafraichirJetonSpotify() {
+
+    const refresh = localStorage.getItem("spotify_refresh_token");
+    if (!refresh) return false;
+
+    const corps = new URLSearchParams({
+        client_id: SPOTIFY_CLIENT_ID,
+        grant_type: "refresh_token",
+        refresh_token: refresh
+    });
+
+    try {
+
+        const reponse = await fetch("https://accounts.spotify.com/api/token", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: corps
+        });
+
+        if (!reponse.ok) return false;
+
+        const donnees = await reponse.json();
+        enregistrerJetonsSpotify(donnees);
+
+        return true;
+
+    } catch (erreur) {
+        return false;
+    }
+}
+
+
+function estConnecteSpotify() {
+    return !!localStorage.getItem("spotify_refresh_token");
+}
+
+
+async function obtenirJetonValideSpotify() {
+
+    const jeton = localStorage.getItem("spotify_access_token");
+
+    const expireA = parseInt(
+        localStorage.getItem("spotify_expire_a") || "0",
+        10
+    );
+
+    if (!jeton) return null;
+
+    // On rafraîchit un peu avant l'expiration réelle du jeton
+    if (Date.now() > expireA - 30000) {
+
+        const succes = await rafraichirJetonSpotify();
+
+        if (!succes) return null;
+
+        return localStorage.getItem("spotify_access_token");
+    }
+
+    return jeton;
+}
+
+
+function formaterTempsSpotify(ms) {
+
+    const totalSecondes = Math.floor(ms / 1000);
+    const minutes = Math.floor(totalSecondes / 60);
+    const secondes = totalSecondes % 60;
+
+    return minutes + ":" + String(secondes).padStart(2, "0");
+}
+
+
+function afficherEtatSpotify(etat) {
+
+    // etat : "connexion" | "vide" | "lecture"
+
+    spotifyEls.connect.style.display =
+        etat === "connexion" ? "flex" : "none";
+
+    spotifyEls.vide.style.display =
+        etat === "vide" ? "block" : "none";
+
+    spotifyEls.player.style.display =
+        etat === "lecture" ? "flex" : "none";
+}
+
+
+let dureeActuelleSpotify = 0;
+let progressionActuelleSpotify = 0;
+let enLectureSpotify = false;
+let dernierMorceauIdSpotify = null;
+
+
+async function actualiserLectureSpotify() {
+
+    if (!estConnecteSpotify()) {
+        afficherEtatSpotify("connexion");
+        return;
+    }
+
+    const jeton = await obtenirJetonValideSpotify();
+
+    if (!jeton) {
+        afficherEtatSpotify("connexion");
+        return;
+    }
+
+    try {
+
+        const reponse = await fetch(
+            "https://api.spotify.com/v1/me/player/currently-playing?additional_types=track",
+            { headers: { Authorization: "Bearer " + jeton } }
+        );
+
+        if (reponse.status === 204 || reponse.status === 202) {
+            afficherEtatSpotify("vide");
+            enLectureSpotify = false;
+            dernierMorceauIdSpotify = null;
+            return;
+        }
+
+        if (!reponse.ok) return;
+
+        const donnees = await reponse.json();
+
+        if (!donnees || !donnees.item) {
+            afficherEtatSpotify("vide");
+            enLectureSpotify = false;
+            dernierMorceauIdSpotify = null;
+            return;
+        }
+
+        afficherEtatSpotify("lecture");
+
+        const morceau = donnees.item;
+        const pochettes = morceau.album.images || [];
+        const pochette = pochettes[1] || pochettes[0];
+
+        if (morceau.id !== dernierMorceauIdSpotify) {
+
+            spotifyEls.cover.src = pochette ? pochette.url : "";
+            spotifyEls.titre.textContent = morceau.name;
+
+            spotifyEls.artiste.textContent = morceau.artists
+                .map(function(a) { return a.name; })
+                .join(", ");
+
+            spotifyEls.tempsTotal.textContent =
+                formaterTempsSpotify(morceau.duration_ms);
+
+            dernierMorceauIdSpotify = morceau.id;
+        }
+
+        dureeActuelleSpotify = morceau.duration_ms;
+        progressionActuelleSpotify = donnees.progress_ms || 0;
+        enLectureSpotify = donnees.is_playing;
+
+        mettreAJourBarreSpotify();
+
+    } catch (erreur) {
+        // Silencieux : on retentera au prochain cycle
+    }
+
+}
+
+
+function mettreAJourBarreSpotify() {
+
+    if (!dureeActuelleSpotify) return;
+
+    const pourcentage = Math.min(
+        100,
+        (progressionActuelleSpotify / dureeActuelleSpotify) * 100
+    );
+
+    spotifyEls.progression.style.width = pourcentage + "%";
+    spotifyEls.tempsActuel.textContent =
+        formaterTempsSpotify(progressionActuelleSpotify);
+}
+
+
+// Avance la barre de progression en douceur entre deux appels à l'API
+setInterval(function() {
+
+    if (enLectureSpotify) {
+
+        progressionActuelleSpotify = Math.min(
+            dureeActuelleSpotify,
+            progressionActuelleSpotify + 250
+        );
+
+        mettreAJourBarreSpotify();
+    }
+
+}, 250);
+
+
+// Interroge Spotify régulièrement pour rester à jour "en direct"
+if (spotifyEls.player && spotifyEls.connect) {
+
+    actualiserLectureSpotify();
+
+    setInterval(actualiserLectureSpotify, 4000);
+}
+
+
+// Récupère le code renvoyé par Spotify juste après la connexion
+(async function gererRetourSpotify() {
+
+    const parametres = new URLSearchParams(window.location.search);
+    const code = parametres.get("code");
+
+    if (!code) return;
+
+    await echangerCodeContreJetonSpotify(code);
+
+    // Nettoie l'adresse pour retirer le code de l'URL
+    window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+    );
+
+    actualiserLectureSpotify();
+
+})();
+
+</script>
+
+
+</body>
+
+</html>
